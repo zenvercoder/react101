@@ -16,27 +16,22 @@
 
 * Angular focuses on using existing JavaScript and HTML without breaking standards.
 
-### Code
+### Some Code
 
 `npm init -y`
 
 `npm install --save react react-dom webpack babel-preset-react babel-preset-es2015`
 
-`npm install --save babel-core`
+`npm install --save babel-core babel-loader`
 
-`module: {
-  loaders: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel', // 'babel-loader' is also a valid name to reference
-      query: {
-        presets: ['es2015']
-      }
-    }
-  ]
-}`
+edit webpack config
 
 `npm install -g gitignore`
 
 `echo node_modules >> .gitignore`
+
+`open index.html`
+
+`npm run dev`
+
+enable js source maps
