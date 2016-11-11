@@ -55,16 +55,10 @@
 	
 	var ReactDOM = __webpack_require__(2);
 	var React = __webpack_require__(167);
-	var TodoList = __webpack_require__(173);
-	var data = __webpack_require__(175);
+	var App = __webpack_require__(173);
+	var data = __webpack_require__(177);
 	
-	// class Welcome extends React.Component {
-	//   render(){
-	//     return <h1>Hello, {this.props.name}!</h1>;
-	//   }
-	// }
-	
-	ReactDOM.render(React.createElement(TodoList, { todos: data.todos }), document.getElementById('app'));
+	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -21448,50 +21442,34 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(167);
-	var TodoItem = __webpack_require__(174);
+	var TodoList = __webpack_require__(174);
+	var Name = __webpack_require__(176);
 	
-	// has a method getTodos and a method render
+	var App = function (_React$Component) {
+		_inherits(App, _React$Component);
 	
-	var TodoList = function (_React$Component) {
-	  _inherits(TodoList, _React$Component);
+		function App() {
+			_classCallCheck(this, App);
 	
-	  function TodoList() {
-	    _classCallCheck(this, TodoList);
+			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+		}
 	
-	    return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
-	  }
+		_createClass(App, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"main",
+					null,
+					React.createElement(TodoList, { todos: this.props.data.todos }),
+					React.createElement(Name, { name: this.props.data.name })
+				);
+			}
+		}]);
 	
-	  _createClass(TodoList, [{
-	    key: "getTodos",
-	    value: function getTodos() {
-	      return this.props.todos.map(function (t) {
-	        return React.createElement(TodoItem, { todo: t });
-	      });
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      React.createElement(
-	        "div",
-	        null,
-	        React.createElement(
-	          "h1",
-	          null,
-	          "Welcome to your TODOS!"
-	        ),
-	        React.createElement(
-	          "ol",
-	          null,
-	          this.getTodos()
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return TodoList;
+		return App;
 	}(React.Component);
 	
-	module.exports = TodoList;
+	module.exports = App;
 
 /***/ },
 /* 174 */
@@ -21508,31 +21486,50 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(167);
+	var TodoItem = __webpack_require__(175);
+	var Name = __webpack_require__(176);
 	
-	var TodoItem = function (_React$Component) {
-	  _inherits(TodoItem, _React$Component);
+	var TodoList = function (_React$Component) {
+		_inherits(TodoList, _React$Component);
 	
-	  function TodoItem() {
-	    _classCallCheck(this, TodoItem);
+		function TodoList() {
+			_classCallCheck(this, TodoList);
 	
-	    return _possibleConstructorReturn(this, (TodoItem.__proto__ || Object.getPrototypeOf(TodoItem)).apply(this, arguments));
-	  }
+			return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
+		}
 	
-	  _createClass(TodoItem, [{
-	    key: "render",
-	    value: function render() {
-	      return React.createElement(
-	        "li",
-	        null,
-	        this.props.todo.text
-	      );
-	    }
-	  }]);
+		_createClass(TodoList, [{
+			key: "getTodos",
+			value: function getTodos() {
+				return this.props.todos.map(function (t) {
+					return React.createElement(TodoItem, { todo: t });
+				});
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h1",
+						null,
+						"Welcome to your TODOS!"
+					),
+					React.createElement(Name, { name: "ohai" }),
+					React.createElement(
+						"ol",
+						null,
+						this.getTodos()
+					)
+				);
+			}
+		}]);
 	
-	  return TodoItem;
+		return TodoList;
 	}(React.Component);
 	
-	module.exports = TodoItem;
+	module.exports = TodoList;
 
 /***/ },
 /* 175 */
@@ -21540,17 +21537,101 @@
 
 	"use strict";
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var React = __webpack_require__(167);
 	
+	var TodoItem = function (_React$Component) {
+		_inherits(TodoItem, _React$Component);
+	
+		function TodoItem() {
+			_classCallCheck(this, TodoItem);
+	
+			return _possibleConstructorReturn(this, (TodoItem.__proto__ || Object.getPrototypeOf(TodoItem)).apply(this, arguments));
+		}
+	
+		_createClass(TodoItem, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"li",
+					null,
+					this.props.todo.text
+				);
+			}
+		}]);
+	
+		return TodoItem;
+	}(React.Component);
+	
+	module.exports = TodoItem;
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(167);
+	
+	var Name = function (_React$Component) {
+		_inherits(Name, _React$Component);
+	
+		function Name() {
+			_classCallCheck(this, Name);
+	
+			return _possibleConstructorReturn(this, (Name.__proto__ || Object.getPrototypeOf(Name)).apply(this, arguments));
+		}
+	
+		_createClass(Name, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"h2",
+					null,
+					"Your Name: ",
+					this.props.name
+				);
+			}
+		}]);
+	
+		return Name;
+	}(React.Component);
+	
+	module.exports = Name;
+
+/***/ },
+/* 177 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
 	var todos = [{
-	  text: "learn React",
-	  id: 1
+		text: "Learn React",
+		id: 1
 	}, {
-	  text: "get a job",
-	  id: 2
+		text: "Ride a pony",
+		id: 2
 	}];
+	
+	var name = "ohai";
+	
 	module.exports = {
-	  todos: todos
+		todos: todos, name: name
 	};
 
 /***/ }

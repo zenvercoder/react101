@@ -1,16 +1,8 @@
 {
-  "name": "react101",
+  "name": "react-intro",
   "version": "1.0.0",
-  "description": "* It's a component tree. You make components and they break out into more components.",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "build": "webpack --config",
-    "dev": "weback --config --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
@@ -19,5 +11,13 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "webpack": "^1.13.3"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+		"build": "webpack --config",
+		"dev": "webpack --config --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

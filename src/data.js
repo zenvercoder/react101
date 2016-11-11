@@ -1,16 +1,16 @@
-const React = require("react")
-
-
 const todos = [
-  {
-  text: "learn React",
-  id: 1
-},
-{
-  text: "get a job",
-  id: 2
-}
+	{
+		text: "Learn React",
+		id: 1
+	},
+	{
+		text: "Ride a pony",
+		id: 2
+	}
 ]
+
+const name = "ohai"
+
 module.exports = {
-  todos
+	todos, name
 }
